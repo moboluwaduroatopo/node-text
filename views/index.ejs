@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+<div class="row">
+
+  <div class="col-lg-4 col-md-12 mb-6">
+    <!--Card-->
+    <div class="card card-cascade wider mb-4">
+      <div class="card-body card-body-cascade text-center">
+       
+         <form action="/saveFile" method="post">
+    	
+  <div class="form-group">
+    <label for="firstName">File Name:</label>
+    <input type="text" class="form-control" name="fileName" id="file">
+  </div>
+ <div class="form-group">
+  <textarea onkeyup="color(this.value)" placeholder="Enter Html code" name="fileContent" style="width: 100%;height: 400px"></textarea>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Save</button>
+</form> 
+
+      </div>
+      <!--/.Card content-->
+
+    </div>
+    <!--/.Card-->
+
+  </div>
+   <div class="col-lg-2 col-md-2 mb-2">
+
+   
+
+    <!--Card-->
+    <div class="card card-cascade narrower mb-4" style="margin-top: 28px">
+       
+      <div class="card-body card-body-cascade text-center">
+      
+       <div class="form-group">
+       <h4 class="card-title">Files Save</h4>
+      <% if(fileContent != "") {%>
+                        <ol>
+                       <% for(i = 0; i < fileContent.length; i++){%>
+                           <a href="/getFile/<%= fileContent[i] %>" class="text-info"><li><%= fileContent[i] %></li></a>
+
+                        <%}%>
+                        <ol>
+                    <%}%>
+       </div>
+       
+      </div>
+      <!--/.Card content-->
+
+    </div>
+    <!--/.Card-->
+
+  </div>
+  <div class="col-lg-6 col-md-6 mb-6">
+    <!--Card-->
+    <div class="card card-cascade narrower mb-4" style="margin-top: 28px">
+       
+      <div class="card-body card-body-cascade text-center">
+      
+       <div class="form-group">
+       <h4 class="card-title">Display text</h4>
+        <% if(fileGot != null){%>
+                    <div class="border-whit">
+                        <%- fileGot %>
+                    </div>
+                  <%}%>  
+   
+       </div>
+       
+      </div>
+      <!--/.Card content-->
+
+    </div>
+    <!--/.Card-->
+
+  </div>
+  
+</div>
+
+</div>
+</body>
+ <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+</html>
